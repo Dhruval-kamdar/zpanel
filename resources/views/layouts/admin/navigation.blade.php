@@ -22,6 +22,8 @@
                     </a>
                     <ul class="dropdown-menu animated fadeInRight m-t-xs">
                         <li><a href="{{ route ('logout') }}">Logout</a></li>
+                        
+
                     </ul>
                 </div>
                 <div class="logo-element">
@@ -29,7 +31,25 @@
                 </div>
             </li>
             <li class="{{ isActiveRoute('company-dashboard') }}">
-                <a href="{{ route ('company-dashboard') }}"><i class="fa fa-th-large"></i> <span class="nav-label">Dashboard</span></a>
+                <a href="{{ route ('company-dashboard') }}"><i class="fa fa-th-large"></i> <span class="nav-label">Account Information</span></a>
+            </li>
+            <li class="">
+                <a href="{{ route ('company-dashboard') }}"><i class="fa fa-th-large"></i> <span class="nav-label">Server Admin</span></a>
+            </li>
+            <li class="">
+                <a href="{{ route ('company-dashboard') }}"><i class="fa fa-th-large"></i> <span class="nav-label">Advance</span></a>
+            </li>
+            <li class="">
+                <a href="{{ route ('company-dashboard') }}"><i class="fa fa-th-large"></i> <span class="nav-label">Database Management</span></a>
+            </li>
+            <li class="">
+                <a href="{{ route ('company-dashboard') }}"><i class="fa fa-th-large"></i> <span class="nav-label">Domain Management</span></a>
+            </li>
+            <li class="">
+                <a href="{{ route ('company-dashboard') }}"><i class="fa fa-th-large"></i> <span class="nav-label">Mail</span></a>
+            </li>
+            <li class="">
+                <a href="{{ route ('company-dashboard') }}"><i class="fa fa-th-large"></i> <span class="nav-label">File Management</span></a>
             </li>
             <li class="{{ isActiveRoute('company-edit-profile') }}">
                 <a href="{{ route ('company-edit-profile') }}"><i class="fa fa-th-large"></i> <span class="nav-label">Edit Profile</span> </a>

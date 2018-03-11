@@ -31,7 +31,7 @@
                         <div class="col-md-2">
                             <a class="" href="javascript:;">
                                 <i class="fa fa-lock" style="font-size:45px;"></i>
-                                Change
+                                Security Center
                             </a>
                         </div>
                         <div class="col-md-2">
@@ -98,7 +98,7 @@
                         <div class="col-md-2">
                             <a class="" href="javascript:;">
                                 <i class="fa fa-wrench" style="font-size:45px;"></i>
-                                Change
+                                Service Configuration
                             </a>
                         </div>
                         <div class="col-md-2">
@@ -355,7 +355,7 @@
                         <div class="col-md-2">
                             <a class="" href="javascript:;">
                                 <i class="fa fa-cloud-upload" aria-hidden="true" style="font-size:45px;"></i>
-                                Change
+                                FTP Configuration
                             </a>
                         </div>
                     </div>
