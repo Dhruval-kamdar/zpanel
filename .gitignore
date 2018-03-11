@@ -1,0 +1,6 @@
+/nbproject/private/
+/storage
+/vendor
+/public/uploads
+/storage/framework
+.env
