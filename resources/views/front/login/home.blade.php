@@ -5,7 +5,7 @@
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1">
 
-        <title>PWPanel</title>
+        <title>ZPanel</title>
 
         <!-- Fonts -->
         <link href="https://fonts.googleapis.com/css?family=Raleway:100,600" rel="stylesheet" type="text/css">
@@ -140,7 +140,7 @@
 
                     <ul class="nav">
                     <li><a href="{{ url('/') }}">Home</a></li>
-                    @for($i=0; $i < count($getParentPages);$i++)
+<!--                    @for($i=0; $i < count($getParentPages);$i++)
                     <li>
                      <a href="{{ url('pagedetail/'.$getParentPages[$i]['id']) }}">{{ $getParentPages[$i]['menu_name'] }}</a>
                      @for($j=0; $j < count($getAllMenu);$j++)
@@ -151,15 +151,15 @@
                         @endif
                      @endfor
                     </li>    
-                    @endfor
+                    @endfor-->
                     <li><a href="{{ route('login') }}">Login</a></li>
-                    <li><a href="javascript:;">Download</a>
+<!--                    <li><a href="javascript:;">Download</a>
                          <ul>
                     @for($j=0; $j < count($getfileList);$j++)
                         <li><a href="{{ url('downloadfile/'.$getfileList[$j]['id']) }}">{{ $getfileList[$j]['display_name'] }}</a></li>
                     @endfor
                       </ul>
-                    </li>
+                    </li>-->
                     </ul>
                     
                 </div>
@@ -167,7 +167,7 @@
 
             <div class="content">
                 <div class="title m-b-md">
-                    PWPanel
+                    ZPanel
                 </div>
 
                 <div class="links">

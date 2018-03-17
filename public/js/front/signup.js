@@ -1,7 +1,7 @@
 var Singup = function () {
 
     var signupInt = function () {
-        
+        setbgcolortobody();
         var form = $('#signUp');
         var rules = {
             first_name: {required: true},
