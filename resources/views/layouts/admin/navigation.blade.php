@@ -51,7 +51,10 @@
             <li class="">
                 <a href="{{ route ('company-dashboard') }}"><i class="fa fa-th-large"></i> <span class="nav-label">File Management</span></a>
             </li>
-            <li class="{{ isActiveRoute('company-edit-profile') }}">
+            <li class="{{ isActiveRoute('bg-update') }}">
+                <a href="{{ route ('bg-update') }}"><i class="fa fa-th-large"></i> <span class="nav-label">Back Ground Change</span></a>
+            </li>
+<!--            <li class="{{ isActiveRoute('company-edit-profile') }}">
                 <a href="{{ route ('company-edit-profile') }}"><i class="fa fa-th-large"></i> <span class="nav-label">Edit Profile</span> </a>
             </li>
             <li class="{{ isActiveRoute('file-upload') }}">
@@ -59,7 +62,7 @@
             </li>
             <li class="{{ isActiveRoute('pages') }}">
                 <a href="{{ route ('pages') }}"><i class="fa fa-th-large"></i> <span class="nav-label">Pages</span> </a>
-            </li>
+            </li>-->
             
         </ul>
 

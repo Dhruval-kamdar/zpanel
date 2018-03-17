@@ -627,110 +627,31 @@ function ordinal(number) {
             return number + 'th'
     }
 }
+function setCookie(cname, cvalue, exdays) {
+    var d = new Date();
+    d.setTime(d.getTime() + (exdays * 24 * 60 * 60 * 1000));
+    var expires = "expires="+d.toUTCString();
+    document.cookie = cname + "=" + cvalue + ";" + expires + ";path=/";
+}
 
-$("body").on('click', '.restoreWaiting', function () {
-    var bookId = $(this).attr('data-id');
-
-    var permit = $(this).attr("data-permit");
-    var reason = $("#restoreWaitingPopupReason").val();
-    if (permit == "N") {
-        $("#restoreWaitingPopup").modal("hide");
-        return false;
-    }
-
-    ajaxcall(tutorurl + 'booking/restoreWaiting', {id: bookId, is_accept: permit, reason: reason}, function (output) {
-        var res = JSON.parse(output);
-        $("#restoreWaitingPopupReason").val("");
-        $(".booking_restored_success").attr("data-id", bookId);
-
-        if (res.status == "deleteDay") {
-            $("#restoreWaitingPopupReason").val("day");
-            $("#restoreWaitingPopup").modal("show");
-        } else if (res.status == "priceChange") {
-            $("#restoreWaitingPopup").modal("show");
-        } else {
-            handleAjaxResponse(output);
+function getCookie(cname) {
+    var name = cname + "=";
+    var ca = document.cookie.split(';');
+    for(var i = 0; i < ca.length; i++) {
+        var c = ca[i];
+        while (c.charAt(0) == ' ') {
+            c = c.substring(1);
         }
-    });
-});
-
-
-$('body').on('click', '.booking_restored', function () {
-    var orderId = $(this).attr("data-id");
-    var dataurlid = $(this).attr("data-url-id");
-
-    var permit = $(this).attr("data-permit");
-    var reason = $("#popupreason").val();
-    if (permit == "N") {
-        $("#booking_restore_popup").modal("hide");
-        return false;
-    }
-
-    $("#booking_restore_popup").modal("hide");
-    ajaxcall(tutorurl + 'booking/restoreBooking', {orderId: orderId, is_accept: permit, reason: reason}, function (output) {
-        var res = JSON.parse(output);
-        $("#popupreason").val("");
-        if (res.status == "deleteDay") {
-            $("#booking_restore_popup").modal("show");
-            $("#popupreason").val("day");
-            $(".restoreConfMsg").text("The current class had some days or fees modified, you need to make sure the fee is correct on the restored booking. You can adjust the total invoice for this booking in the order details page or make a new booking instead for this student.");
-
-            $(".booking_restored_success").attr("data-id", orderId);
-            $(".booking_restored_success").attr("data-url-id", dataurlid);
-
-        } else if (res.status == "priceChange") {
-            $("#booking_restore_popup").modal("show");
-            $(".restoreConfMsg").text("The current class had some days or fees modified, you need to make sure the fee is correct on the restored booking. You can adjust the total invoice for this booking in the order details page or make a new booking instead for this student.");
-
-            $(".booking_restored_success").attr("data-id", orderId);
-            $(".booking_restored_success").attr("data-url-id", dataurlid);
-
-        } else {
-            handleAjaxResponse(output);
+        if (c.indexOf(name) == 0) {
+            return c.substring(name.length, c.length);
         }
-    });
-});
-
-$('body').on('click', '.camp_restore', function () {
-    var orderId = $(this).attr("data-id");
-    var dataurlid = $(this).attr("data-url-id");
-
-    ajaxcall(tutorurl + 'holiday_programme/restoreBooking', {orderId: orderId}, function (output) {
-        handleAjaxResponse(output);
-    });
-});
-
-$('body').on('click', '.checkContactcookie', function () {
-    Cookies.set('currentLoginType', $(this).attr('data-userType'));
-});
-
-var isValidTutor = true;
-var isGettingSide = false;
-var notifiSecs = 1;
-
-$('body').on('click', '.notifOpen', function () {
-    if (!isGettingSide) {
-        isGettingSide = true;
-        ajaxcall(baseurl + 'Notification/getSideNotification', {a: 'a'}, function (output) {
-            isGettingSide = false;
-            output = JSON.parse(output);
-            $(".sideNotifDiv").html(output.htm);
-            $('body').removeClass('page-quick-sidebar-open');
-            $('body').addClass('page-quick-sidebar-open');
-            getNotificationCount(true);
-        });
     }
-});
+    return "";
+}
 
-$('body').on('click', '.notifClose', function () {
-    isGettingSide = false;
-    $(".sideNotifDiv").html('');
-    $('body').removeClass('page-quick-sidebar-open');
-});
-
-
-$('#show_notification').on('hidden.bs.modal', function () {
-    $(".sideNotifDiv").html('');
-    $(".allNotifDiv").html('');
-    $('body').removeClass('page-quick-sidebar-open');
-});
+function setbgcolortobody()
+{
+    var background = getCookie('bgcolor');
+    $('.navbar-fixed-top').css('background',background);
+    $('#page-wrapper').css('background',background);
+}

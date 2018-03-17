@@ -37,4 +37,6 @@ Route::match(['get','post'], '/admin/pages-add', ['as' => 'pages-add', 'uses' =>
 Route::match(['get','post'], '/admin/pages-edit/{id}', ['as' => 'pages-edit', 'uses' => 'Admin\PagesController@pagesEdit']);
 Route::match(['get','post'], '/admin/pages-delete', ['as' => 'pages-delete', 'uses' => 'Admin\PagesController@pagesDelete']);
 
+Route::match(['get','post'], '/admin/bg-update', ['as' => 'bg-update', 'uses' => 'Admin\BgupdateController@bgUpdate']);
+
 //Route::match(['get', 'post'], '/dashboard', ['as' => 'dashboard', 'uses' => 'Front\LoginController@dashboard']);
